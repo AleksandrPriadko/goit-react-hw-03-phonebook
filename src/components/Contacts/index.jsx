@@ -11,6 +11,7 @@ export class Contacts extends Component {
       <div>
         <h2>Contacts</h2>
         <FindContacts filter={filter} handleFilter={onChange} />
+
         <ContactsList contacts={contacts} deleteContact={deleteContact} />
       </div>
     );

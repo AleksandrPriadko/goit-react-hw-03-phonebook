@@ -29,18 +29,19 @@ export class App extends Component {
 
   addNewContact = (data) => {
     const { name, number } = data;
-
+    const { contacts } = this.state;
     const newContact = {
       id: uuidv4(),
       name: name,
       number: number,
     };
-
-    this.setState((prevState) => {
-      return {
+    if (contacts.some((contact) => contact.name === name)) {
+      alert(`${name} is already in contacts!`);
+    } else {
+      this.setState((prevState) => ({
         contacts: [...prevState.contacts, newContact],
-      };
-    });
+      }));
+    }
   };
 
   changeFilter = (event) => {
